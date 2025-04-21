@@ -1,5 +1,6 @@
 'use client'
 import { motion } from "framer-motion";
+import { Suspense } from "react";
 
 export default function AuthLayout({
   children,
@@ -17,7 +18,9 @@ export default function AuthLayout({
         <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-b from-[color:var(--brand-primary)] to-transparent opacity-10 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-t from-[color:var(--brand-secondary)] to-transparent opacity-10 blur-3xl" />
       </motion.div>
-      <div className="relative z-10 w-full">{children}</div>
+      <Suspense fallback={<div className="relative z-10 w-full flex items-center justify-center py-12">Loading...</div>}>
+        <div className="relative z-10 w-full">{children}</div>
+      </Suspense>
     </div>
   );
 } 
