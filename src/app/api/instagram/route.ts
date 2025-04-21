@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import puppeteer from 'puppeteer';
+import chromium from 'chrome-aws-lambda';
+import puppeteer from 'puppeteer-core';
 
 // Helper function to convert Instagram follower/following counts to numbers
 function convertToNumber(countStr: string): number {
@@ -44,7 +45,12 @@ export async function GET(request: Request) {
   }
   
   try {
-    const browser = await puppeteer.launch({ headless: true });
+    const browser = await puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath,
+      headless: chromium.headless,
+    });
     const page = await browser.newPage();
     const url = `https://www.instagram.com/${username}/`;
     
