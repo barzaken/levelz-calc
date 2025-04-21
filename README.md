@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Levelz - Influencer Marketing Platform
+
+Levelz is a cutting-edge SaaS platform that connects content creators and influencers with companies looking to run impactful influencer marketing campaigns. The platform facilitates the discovery, collaboration, and management of creator partnerships with an intuitive interface and powerful matching algorithm.
+
+![Levelz Platform](https://placeholder-for-levelz-screenshot.com)
+
+## Features
+
+### For Content Creators / Influencers
+
+- **Profile Management**: Create a detailed profile showcasing your work, audience demographics, and expertise
+- **Portfolio Showcase**: Upload and display your best content in a beautiful, organized portfolio
+- **Social Media Integration**: Connect your social accounts to display metrics and engagement rates
+- **Campaign Discovery**: Browse opportunities that match your audience and content style
+- **Analytics Dashboard**: Track profile views, campaign performance, and audience growth
+
+### For Companies / Brands
+
+- **Campaign Creation**: Easily create and manage campaigns with detailed targeting options
+- **Creator Discovery**: Find the perfect creators based on audience demographics, engagement rates, and content quality
+- **Budget Management**: Set campaign budgets and manage payments in one place
+- **Performance Tracking**: Monitor campaign metrics and ROI in real-time
+- **Communication Tools**: Seamless messaging and contract management built-in
+
+## Technology Stack
+
+- **Frontend Framework**: React with Next.js (App Router)
+- **Styling**: Tailwind CSS v4 with shadcn/ui components
+- **Animation**: Framer Motion for fluid interactions
+- **Authentication & Database**: Supabase
+- **State Management**: React Context API
+- **Form Handling**: React Hook Form with Zod validation
+- **Deployment**: Vercel
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18+ and npm
+- Supabase account (for database and authentication)
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/levelz.git
+   cd levelz
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env.local` file with your Supabase credentials:
+   ```
+   NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+   ```
+
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Project Structure
+
+```
+levelz/
+├── public/              # Static assets
+├── src/                 # Source code
+│   ├── app/             # Next.js pages using App Router
+│   │   ├── (auth)/      # Authentication routes
+│   │   ├── (dashboard)/ # Protected dashboard routes
+│   │   └── (marketing)/ # Public marketing routes
+│   ├── components/      # Reusable UI components
+│   │   └── ui/          # shadcn/ui components
+│   ├── context/         # React Context providers
+│   ├── hooks/           # Custom React hooks
+│   ├── lib/             # Utility functions
+│   │   └── supabase/    # Supabase clients
+│   ├── styles/          # Global styles
+│   └── types/           # TypeScript type definitions
+├── .env.local.example   # Example environment variables
+├── middleware.ts        # Next.js middleware (auth protection)
+└── tailwind.config.js   # Tailwind CSS configuration
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Database Schema
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+The platform uses the following main tables in Supabase:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `users` - User accounts and profile types
+- `influencer_profiles` - Detailed information for creator accounts
+- `company_profiles` - Detailed information for brand accounts
+- `social_media_accounts` - Connected social platforms and metrics
+- `portfolio_items` - Creator content showcase items
+- `campaigns` - Marketing campaigns created by brands
+- `matches` - Connections between creators and campaigns
+- `conversations` - Messaging between users
+- `messages` - Individual messages in conversations
 
-## Learn More
+## Features to be Implemented
 
-To learn more about Next.js, take a look at the following resources:
+- Payment processing integration
+- Advanced analytics dashboard
+- AI-powered content suggestions
+- Mobile app versions
+- Public API for third-party integrations
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## License
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-## Deploy on Vercel
+## Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [Next.js](https://nextjs.org/)
+- [React](https://reactjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Supabase](https://supabase.io/)
